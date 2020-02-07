@@ -6,6 +6,8 @@ import { AddPlanetComponent } from './add-planet/add-planet.component';
 import { EditPlanetComponent } from './edit-planet/edit-planet.component';
 import { PlanetsRouting } from './planets.routing';
 import { PlanetsService } from './shared/services/planets.service';
+import { QuestionControlService } from '../shared/services/question-control.service';
+import { DynamicFormModule } from '../shared/components/dynamic-form/dynamic-form.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { PlanetsService } from './shared/services/planets.service';
   ],
   imports: [
     BrowserModule,
-    PlanetsRouting
+    PlanetsRouting,
+    DynamicFormModule
   ],
   providers: [
-    PlanetsService
+    PlanetsService,
+    QuestionControlService
   ],
 })
 export class PlanetsModule { }
