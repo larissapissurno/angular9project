@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -11,10 +11,13 @@ import { MatListModule } from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 import { AppComponent } from './app.component';
 import { PlanetsModule } from './planets/planets.module';
 import { AppRouting } from './app.routing';
 import { HomeComponent } from './home/home.component';
+import { LoaderInterceptorService } from './shared/services/loader-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     AppRouting,
     PlanetsModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
 
     MatToolbarModule,
     MatSidenavModule,
@@ -35,7 +39,9 @@ import { HomeComponent } from './home/home.component';
     MatListModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

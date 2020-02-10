@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
 import { PlanetsService } from '../shared/services/planets.service';
 
 @Component({
@@ -10,13 +12,17 @@ import { PlanetsService } from '../shared/services/planets.service';
 export class GetPlanetComponent implements OnInit {
   planets: any[];
 
-  constructor(private planetService: PlanetsService) { }
+  constructor(
+    private planetService: PlanetsService,
+    private spinner: NgxSpinnerService
+  ) { }
 
   ngOnInit() {
     this.getPlanets();
   }
 
   private getPlanets = async () => {
+    // this.spinner.hide();
     const {results: planets } = await this.planetService.get().toPromise();
 
     this.planets = planets;
