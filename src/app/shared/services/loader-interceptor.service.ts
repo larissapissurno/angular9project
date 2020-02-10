@@ -11,6 +11,7 @@ export class LoaderInterceptorService implements HttpInterceptor {
   constructor(private spinner: NgxSpinnerService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('spinner show');
     this.spinner.show();
 
     return Observable.create(observer => {

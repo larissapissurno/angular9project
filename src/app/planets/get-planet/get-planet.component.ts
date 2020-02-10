@@ -11,6 +11,7 @@ import { PlanetsService } from '../shared/services/planets.service';
 })
 export class GetPlanetComponent implements OnInit {
   planets: any[];
+  displayedColumns: string[] = ['name', 'diameter', 'climate', 'population'];
 
   constructor(
     private planetService: PlanetsService,
@@ -22,7 +23,6 @@ export class GetPlanetComponent implements OnInit {
   }
 
   private getPlanets = async () => {
-    // this.spinner.hide();
     const {results: planets } = await this.planetService.get().toPromise();
 
     this.planets = planets;

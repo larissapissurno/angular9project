@@ -6,15 +6,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
-import {MatButtonModule} from '@angular/material/button';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonModule } from '@angular/material/button';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
-import { PlanetsModule } from './planets/planets.module';
 import { AppRouting } from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { LoaderInterceptorService } from './shared/services/loader-interceptor.service';
@@ -28,7 +25,6 @@ import { LoaderInterceptorService } from './shared/services/loader-interceptor.s
     BrowserModule,
     HttpClientModule,
     AppRouting,
-    PlanetsModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
 
@@ -37,7 +33,7 @@ import { LoaderInterceptorService } from './shared/services/loader-interceptor.s
     MatMenuModule,
     MatIconModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true },
