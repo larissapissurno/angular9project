@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 import { DynamicFormComponent } from './dynamic-form.component';
 import { DynamicFormQuestionComponent } from './shared/components/dynamic-form-question/dynamic-form-question.component';
@@ -16,6 +19,10 @@ import { QuestionControlService } from '../../services/question-control.service'
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   exports: [
     DynamicFormComponent

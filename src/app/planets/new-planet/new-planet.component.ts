@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionService } from 'src/app/shared/components/dynamic-form/shared/services/question.service';
 
 @Component({
   selector: 'app-new-planet',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-planet.component.css']
 })
 export class NewPlanetComponent implements OnInit {
+  questions: any;
 
-  constructor() { }
+  constructor(private questionService: QuestionService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.questions = this.questionService.getQuestions();
   }
 
 }
