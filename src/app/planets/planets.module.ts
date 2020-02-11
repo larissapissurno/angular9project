@@ -9,6 +9,8 @@ import { GetPlanetComponent } from './get-planet/get-planet.component';
 import { EditPlanetComponent } from './edit-planet/edit-planet.component';
 import { PlanetsRouting } from './planets.routing';
 import { PlanetsService } from './shared/services/planets.service';
+import { QuestionControlService } from '../shared/services/question-control.service';
+import { DynamicFormModule } from '../shared/components/dynamic-form/dynamic-form.module';
 import { NewPlanetComponent } from './new-planet/new-planet.component';
 
 @NgModule({
@@ -20,6 +22,7 @@ import { NewPlanetComponent } from './new-planet/new-planet.component';
   imports: [
     CommonModule,
     PlanetsRouting,
+    DynamicFormModule,
 
     MatListModule,
     MatIconModule,
@@ -27,7 +30,8 @@ import { NewPlanetComponent } from './new-planet/new-planet.component';
     MatButtonModule
   ],
   providers: [
-    PlanetsService
+    PlanetsService,
+    QuestionControlService
   ],
 })
 export class PlanetsModule { }
